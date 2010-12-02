@@ -1,0 +1,115 @@
+[
+  {
+    "pk": 1, 
+    "model": "adminbrowse.person", 
+    "fields": {
+      "name": "Mark Twain",
+      "website": "http://example.com/twain"
+    }
+  },
+  {
+    "pk": 2, 
+    "model": "adminbrowse.person", 
+    "fields": {
+      "name": "Ernest Hemingway",
+      "website": ""
+    }
+  },
+  {
+    "pk": 3, 
+    "model": "adminbrowse.person", 
+    "fields": {
+      "name": "Kurt Vonnegut",
+      "website": "http://example.com/vonnegut"
+    }
+  },
+  {
+    "pk": 1, 
+    "model": "adminbrowse.genre", 
+    "fields": {
+      "label": "War"
+    }
+  },
+  {
+    "pk": 2, 
+    "model": "adminbrowse.genre", 
+    "fields": {
+      "label": "Tragedy"
+    }
+  },
+  {
+    "pk": 3, 
+    "model": "adminbrowse.genre", 
+    "fields": {
+      "label": "Satire"
+    }
+  },
+  {
+    "pk": 4, 
+    "model": "adminbrowse.genre", 
+    "fields": {
+      "label": "Science Fiction"
+    }
+  },
+  {
+    "pk": 5, 
+    "model": "adminbrowse.genre", 
+    "fields": {
+      "label": "Mystery"
+    }
+  },
+  {
+    "pk": 1, 
+    "model": "adminbrowse.book", 
+    "fields": {
+      "title": "For Whom the Bell Tolls",
+      "author": 2,
+      "categories": [1]
+    }
+  },
+  {
+    "pk": 2, 
+    "model": "adminbrowse.book", 
+    "fields": {
+      "title": "A Farewell to Arms",
+      "author": 2,
+      "categories": [1]
+    }
+  },
+  {
+    "pk": 3, 
+    "model": "adminbrowse.book", 
+    "fields": {
+      "title": "The Old Man and the Sea",
+      "author": 2,
+      "categories": [2]
+    }
+  },
+  {
+    "pk": 4, 
+    "model": "adminbrowse.book", 
+    "fields": {
+      "title": "Cat's Cradle",
+      "author": 3,
+      "categories": [3, 4]
+    }
+  },
+  {
+    "pk": 5, 
+    "model": "adminbrowse.book", 
+    "fields": {
+      "title": "Slaughterhouse-Five",
+      "author": 3,
+      "categories": [1, 4]
+    }
+  },
+  {
+    "pk": 6, 
+    "model": "adminbrowse.book", 
+    "fields": {
+      "title": "English Dictionary",
+      "author": null,
+      "categories": []
+    }
+  }
+]

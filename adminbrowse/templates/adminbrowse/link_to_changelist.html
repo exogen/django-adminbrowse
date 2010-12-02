@@ -1,0 +1,5 @@
+{% if text %}
+<span class="changelist-link"><a href="{{ url }}" title="{{ title }}">{{ text }}</a></span>
+{% else %}
+{{ column.default }}
+{% endif %}

@@ -1,0 +1,5 @@
+{% if value %}
+<span class="change-link"><a href="{{ url }}" title="{{ title }}"></a> {{ value }}</span>
+{% else %}
+{{ column.default }}
+{% endif %}
