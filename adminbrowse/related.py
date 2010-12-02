@@ -190,3 +190,7 @@ class ChangeListLink(ChangeListTemplateColumn, ChangeListModelFieldColumn):
         return _("List %(related_verbose_name_plural)s with this "
                  "%(object_verbose_name)s") % strings
 
+link_to_change = ChangeLink
+link_to_changelist = ChangeListLink
+related_list = RelatedList
+

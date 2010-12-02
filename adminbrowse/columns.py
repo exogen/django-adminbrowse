@@ -90,3 +90,6 @@ class TruncatedFieldColumn(ChangeListModelFieldColumn):
         else:
             return self.default
 
+link_to_url = URLColumn
+truncated_field = TruncatedFieldColumn
+

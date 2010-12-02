@@ -8,7 +8,7 @@ from django.conf.urls.defaults import *
 from django.core.management import call_command
 
 from adminbrowse import (link_to_change, link_to_changelist, related_list,
-                         link_to_url, truncated_field)
+                         link_to_url, truncated_field, AutoBrowseModelAdmin)
 
 
 # Test models that will give the functionality under test good coverage.
@@ -39,6 +39,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Person, null=True, related_name='bibliography')
     categories = models.ManyToManyField(Genre, related_name='collection')
+    loc_url = models.URLField("Library of Congress URL", blank=True)
 
     class Meta:
         app_label = 'adminbrowse'
@@ -397,4 +398,40 @@ class TestTruncatedTextColumn(TestCase):
     
     def test_default_defaults_to_empty_string(self):
         self.assertEqual(self.column(self.people[1]), "")
+
+class TestAutoBrowseModelAdmin(TestCase):
+    urls = 'adminbrowse.tests'
+    fixtures = ['test_adminbrowse.json']
+
+    def setUp(self):
+        from django.conf import settings
+
+        class BookAdmin(AutoBrowseModelAdmin):
+            list_display = ['title', 'author', 'categories', 'loc_url']
+
+            class Media:
+                css = {'all': ['test.css']}
+
+        self.model_admin = BookAdmin(Book, test_site)
+        self.media_url = settings.ADMINBROWSE_MEDIA_URL
+
+    def test_has_css_media(self):
+        css_media = self.model_admin.media['css']._css['all']
+        self.assertTrue(self.media_url + 'css/adminbrowse.css' in css_media)
+
+    def test_does_not_clobber_existing_media(self):
+        css_media = self.model_admin.media['css']._css['all']
+        self.assertTrue('test.css' in css_media)
+
+    def test_foreign_key_is_replaced_with_link_to_change(self):
+        field = self.model_admin.list_display[2]
+        self.assertTrue(isinstance(field, link_to_change))
+        self.assertEqual(field.model, Book)
+        self.assertEqual(field.field_name, 'author')
+
+    def test_url_field_is_replaced_with_link_to_url(self):
+        field = self.model_admin.list_display[4]
+        self.assertTrue(isinstance(field, link_to_url))
+        self.assertEqual(field.model, Book)
+        self.assertEqual(field.field_name, 'loc_url')
 

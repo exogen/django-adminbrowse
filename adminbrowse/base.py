@@ -95,3 +95,6 @@ class ChangeListModelFieldColumn(ChangeListColumn):
         else:
             return self.default
 
+template_column = ChangeListTemplateColumn
+model_field = ChangeListModelFieldColumn
+
