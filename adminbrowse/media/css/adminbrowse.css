@@ -1,0 +1,36 @@
+#changelist .changelist-link {
+    display: block;
+    text-align: right;
+}
+
+#changelist .change-link a {
+    float: right;
+}
+
+#changelist .change-link a {
+    height: 14px;
+    background: url('../images/goto-faded.png') no-repeat 100% 50%;
+    padding-right: 20px;
+}
+
+#changelist .change-link a:hover,
+#changelist .change-link a:active {
+    background-image: url('../images/goto.png');
+}
+
+#changelist .changelist-link a {
+    height: 13px;
+    padding-right: 17px;
+    background: url('../images/find-faded.png') no-repeat 100% 50%;
+}
+
+#changelist .changelist-link a:hover,
+#changelist .changelist-link a:active {
+    background-image: url('../images/find.png');
+}
+
+#changelist a.external {
+    background: url('../images/link-external.png') no-repeat 100% 50%;
+    padding-right: 14px;
+}
+
