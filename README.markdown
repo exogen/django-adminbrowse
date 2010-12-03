@@ -3,7 +3,9 @@ django-adminbrowse
 by [Brian Beck][www] / [@ua6oxa](http://twitter.com/ua6oxa)
 
 Make browsing the Django admin site easier by adding helpful features to
-changelist pages.
+changelist pages. Like so:
+
+![screenshot](http://exogen.github.com/django-adminbrowse/images/adminbrowse.png)
 
 * Link to the change form for objects in foreign key fields
 * Link to filtered changelist pages showing only related objects
@@ -11,13 +13,8 @@ changelist pages.
 * Easily generate other dynamic changelist columns
 * Works with no modifications to Django or its default templates
 
-Looks like this:
-![screenshot](http://exogen.github.com/django-adminbrowse/images/adminbrowse.png)
-
-
 Installation
 ------------
-
 From the Python package index:
 
     $ easy_install django-adminbrowse
@@ -34,11 +31,17 @@ Usage
 ### Quickstart
 To enable the most basic functionality, just inherit from
 `adminbrowse.AutoBrowseModelAdmin` instead of Django's
-`django.contrib.admin.ModelAdmin`. Make sure you have made adminbrowse media
-available at the URL specified by the `ADMINBROWSE_MEDIA_URL` setting.
+`django.contrib.admin.ModelAdmin`:
 
-For example, if you copied the adminbrowse media to `<MEDIA_ROOT>/adminbrowse`,
-set `ADMINBROWSE_MEDIA_URL` to `<MEDIA_URL>/adminbrowse/`.
+    from adminbrowse import AutoBrowseModelAdmin
+
+    class MyModelAdmin(AutoBrowseModelAdmin):
+        ...
+
+Make sure you have made adminbrowse media available at the URL specified by
+the `ADMINBROWSE_MEDIA_URL` setting. For example, if you copied the 
+adminbrowse media to **`<MEDIA_ROOT>/adminbrowse`**, set `ADMINBROWSE_MEDIA_URL`
+to **`<MEDIA_URL>/adminbrowse/`**.
 
 ### How it works
 Django allows one to use callable objects in the `list_display` attribute of
@@ -54,7 +57,7 @@ things:
 
 Documentation
 -------------
-### Example
+### Examples
 Given these classes:
 
     class Author(Model):
@@ -88,6 +91,12 @@ classes:
 
 ...where `ADMINBROWSE_MEDIA_URL` is the value from `settings.py`.
 
+### Rendering templates
+Use `help(adminbrowse.template_column)` for now.
+
+### Custom changelist columns
+Use `help(adminbrowse.ChangeListColumn)` for now.
+
 ### Performance effects
 Won't using `link_to_changelist()` drastically increase the number of queries
 executed? By default, yes, it will trigger one query per row in the changelist.
@@ -95,17 +104,17 @@ This trade-off may be acceptable, especially when you consider that the admin
 site is paginated, and probably only accessed by a handful of people.
 
 However, if you can't spare the extra queries, you can still use
-`link_to_changelist()` in useful way. The `text` argument sets the link text
+`link_to_changelist()` in a useful way. The `text` argument sets the link text
 to display. If you set this to a string instead of a callable, the `QuerySet`
 will never be evaluated (the default is `len()`, which is why the number of
-items is shown -- it's called with the `QuerySet`).
+items is shown – it's called with the `QuerySet`).
 
 Using it like so:
 
     link_to_changelist(Author, 'books', text="List books by this author")
 
 ...will still provide a clickable link to the filtered changelist without
-performing the 'books' query.
+performing the query.
 
 [INSTALL]: http://github.com/exogen/django-adminbrowse/blob/master/INSTALL
 [www]: http://brianbeck.com/
