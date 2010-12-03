@@ -2,19 +2,22 @@ django-adminbrowse
 ==================
 by [Brian Beck][www] / [@ua6oxa](http://twitter.com/ua6oxa)
 
-![screenshot](http://exogen.github.com/django-adminbrowse/images/adminbrowse.png)
-
 Make browsing the Django admin site easier by adding helpful features to
 changelist pages.
 
-* Link to the change form for foreign keys
-* Link to changelist pages showing only related objects
+* Link to the change form for objects in foreign key fields
+* Link to filtered changelist pages showing only related objects
 * Link to URLs contained in URL fields
 * Easily generate other dynamic changelist columns
 * Works with no modifications to Django or its default templates
 
+Looks like this:
+![screenshot](http://exogen.github.com/django-adminbrowse/images/adminbrowse.png)
+
+
 Installation
 ------------
+
 From the Python package index:
 
     $ easy_install django-adminbrowse
@@ -23,7 +26,8 @@ From the source repository:
 
     $ pip install git+git://github.com/exogen/django-adminbrowse.git
 
-See [INSTALL][] for more options.
+**Note:** You'll need to copy the adminbrowse media files to your media
+directory after installation.
 
 Usage
 -----

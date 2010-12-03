@@ -4,9 +4,9 @@ use_setuptools()
 from setuptools import setup, find_packages
 setup(
     name = "django-adminbrowse",
-    version = "0.1",
+    version = "0.1.1",
     packages = ['adminbrowse'],
-    package_data = {'adminbrowse': ['*.json', '*.css', '*.png']},
+    include_package_data = True,
     author = "Brian Beck",
     author_email = "exogen@gmail.com",
     description = "Add related object links and other useful info to the "
