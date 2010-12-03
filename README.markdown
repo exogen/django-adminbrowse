@@ -34,6 +34,13 @@ Finally, copy the media files to the location from which your static files
 are served, and set `ADMINBROWSE_MEDIA_URL` to the corresponding location.
 Keep reading for details.
 
+After installing adminbrowse, you may wish to ensure that everything's in
+working order:
+
+    $ python manage.py test adminbrowse
+
+If it's not, please let me know!
+
 Usage
 -----
 ### Quickstart
