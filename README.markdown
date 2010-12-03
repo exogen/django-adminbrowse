@@ -23,8 +23,16 @@ From the source repository:
 
     $ pip install git+git://github.com/exogen/django-adminbrowse.git
 
-**Note:** You'll need to copy the adminbrowse media files to your media
-directory after installation.
+Then, add 'adminbrowse' to your `INSTALLED_APPS`:
+
+    INSTALLED_APPS = (
+        ...
+        'adminbrowse',
+    )
+
+Finally, copy the media files to the location from which your static files
+are served, and set `ADMINBROWSE_MEDIA_URL` to the corresponding location.
+Keep reading for details.
 
 Usage
 -----
@@ -101,7 +109,9 @@ Use `help(adminbrowse.ChangeListColumn)` for now.
 Won't using `link_to_changelist()` drastically increase the number of queries
 executed? By default, yes, it will trigger one query per row in the changelist.
 This trade-off may be acceptable, especially when you consider that the admin
-site is paginated, and probably only accessed by a handful of people.
+site is paginated, and probably only accessed by a handful of people. In my
+experience, the time spent on database queries is only increased by a few
+milliseconds.
 
 However, if you can't spare the extra queries, you can still use
 `link_to_changelist()` in a useful way. The `text` argument sets the link text
