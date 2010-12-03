@@ -1,2 +1,3 @@
-recursive-include adminbrowse *.json *.css *.png
+recursive-include adminbrowse/fixtures *.json
+recursive-include adminbrowse/media *.css *.png
 recursive-include adminbrowse/templates *.html
