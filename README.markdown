@@ -17,7 +17,9 @@ Installation
 ------------
 From the Python package index:
 
-    $ easy_install django-adminbrowse
+    $ easy_install -Z django-adminbrowse
+
+The `-Z` (`--always-unzip`) option will unzip the package during installation, making it easier to copy the media files to the desired location.
 
 From the source repository:
 
