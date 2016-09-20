@@ -1,6 +1,7 @@
 django-adminbrowse
 ==================
-by [Brian Beck][www] / [@ua6oxa](http://twitter.com/ua6oxa)
+![Maintainers Wanted](https://img.shields.io/badge/maintainers-wanted-red.svg)
+
 
 Make browsing the Django admin site easier by adding helpful features to
 changelist pages. Like so:
